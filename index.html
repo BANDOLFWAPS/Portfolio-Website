@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramon Bernal Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #282c34;
+            color: #ffffff;
+            padding: 1em 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5em;
+        }
+
+        .logo img {
+            width: 50px; 
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1em;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
+        }
+
+        section {
+            padding: 2em;
+            text-align: center;
+        }
+
+        #hero {
+            background: url('hero_background.jpg') no-repeat center center/cover;
+            color: #ffffff;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin: 0.5em 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content button {
+            background-color: #ff6347;
+            border: none;
+            color: #ffffff;
+            padding: 1em 2em;
+            margin: 0.5em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content button:hover {
+            background-color: #e5573f;
+        }
+
+        .hero-content img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 1em;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin: 1em 0;
+            animation: slideInLeft 1s ease-in-out;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .skill-card {
+            background-color: #ffffff;
+            color: #333;
+            padding: 1em;
+            margin: 1em;
+            width: 20%;
+            text-align: center;
+            border-radius: 5px;
+            min-width: 200px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1em;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #contact label {
+            text-align: left;
+        }
+
+        #contact input, #contact textarea, #contact button {
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #contact input:focus, #contact textarea:focus {
+            outline: none;
+            border-color: #ff6347;
+        }
+
+        #contact button {
+            background-color: #ff6347;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #contact button:hover {
+            background-color: #e5573f;
+        }
+
+        .social-media a img {
+            width: 30px;
+            margin: 0.5em;
+            transition: transform 0.3s;
+        }
+
+        .social-media a img:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background-color: #282c34;
+            color: #ffffff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+                .external-link-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 16px; 
+            transition: background-color 0.3s ease; 
+        }
+
+        .external-link-button:hover {
+            background-color: #0056b3;
+        }
+
+                .download-cv-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            border: none; 
+            cursor: pointer; 
+            font-size: 16px; 
+            transition: background-color 0.3s ease; 
+        }
+
+        .download-cv-button:hover {
+            background-color: #218838; 
+        }
+
+                .social-logo {
+            width: 40px; 
+            height: auto; 
+            transition: transform 0.3s ease; 
+        }
+
+        .social-logo:hover {
+            transform: scale(1.1); 
+        }
+
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-hobbies, .btn-education {
+            background-color: blue;
+            color: #ffffff;
+            border: none;
+            padding: 0.3em 0.5em;
+            margin: 0.5em;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-hobbies:hover, .btn-education:hover {
+            background-color: red;
+        }
+
+        .hobbies-content, .education-content {
+            display: none;
+            padding: 1em;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 0.5em;
+        }
+
+        .btn-hobbies.clicked + .hobbies-content, .btn-education.clicked + .education-content {
+            display: block;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #555;
+            padding: 0.5em;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 1em;
+            text-decoration: none;
+        }
+
+        .hero {
+            background-color: #17a2b8;
+            color: #fff;
+            padding: 2em 0;
+            text-align: center;
+        }
+
+        .section {
+            padding: 2em;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        .btn-delay {
+            background-color: #17a2b8;
+            color: #ffffff;
+            border: none;
+            padding: 0.5em 1em;
+            margin: 0.5em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-delay:hover {
+            background-color: #138496;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="bandolf_logo.jpg" alt="Bandolf Logo">
+            <p>BANDOLF</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <img src="ramon_2.jpg" alt="Ramon Bernal">
+            <h1>Ramon T. Bernal</h1>
+            <p>BSIT-2B</p>
+            <p>I am Ramon T. Bernal. This is my portfolio in IPT101. I study in DLL as a BSIT-2B as a student. I will bee IT expert of the future.</p>
+            <a href="personal.jpg" class="download-cv-button" download="personal.jpg">Download CV</a>
+            <a href="https://myaccount.google.com/personal-info?pli=1" class="external-link-button">See more</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <img src="ramon.jpg" alt="Ramon Bernal">
+            <p>Hi there! I'm Ramon T. Bernal a passionate individual with a deep curiosity for the world around me.
+                 My Interests span from literature to technology, with a penchant for ecploring the intersection of art
+                 and scirnce. As an Avid reader and writer, I find solace in the written word, constantly seeking inspration from
+                 by colleagues and the authors of Papanas.<br>.
+            </p>
+            <button class="btn-education">Education Background <img src="education_icon.jpg" alt="Education"></button>
+            <div class="education-content">
+                <p>Elementary - 2010-2016 - Isabang Elementary School</p>
+                <p>High School - 2016-2020 - Quezon National High School</p>
+                <p>Senior High School - 2020-2022 - STI College of Lucena</p>
+                <p>College - 2022-Future - Dalubhasaan ng Lungsod ng Lucena</p>
+            </div>
+            <button class="btn-hobbies">Hobbies <img src="hobbies_icon.jpg" alt="Hobbies"></button>
+            <div class="hobbies-content">
+                <p>Basketball</p>
+                <p>Volleyball</p>
+                <p>Badminton</p>
+                <p>Cycling</p>
+                <p>Gamer</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>COMPUTER PROGRAMMER</h3>
+                <p>a somebody who produces computer programs, especially as a career.</p>
+                <button><a href="https://www.coursera.org/articles/how-to-become-a-computer-programmer?isNewUser=true" class="see-more-button">See More</a></button>
+            </div>
+            <div class="skill-card">
+                <h3>WEB DEVELOPER</h3>
+                <p>is the process of designing, developing, and keeping up websites. 
+                </p>
+                <button><a href="https://builtin.com/software-engineering-perspectives/web-development" class="see-more-button">See More</a></button>
+            </div>
+            <div class="skill-card">
+                <h3>WEB DESIGN</h3>
+                <p>speaks about the way websites are designed. Rather than software development, it usually relates to the user experience components of website creation.
+                </p>
+                <button><a href="https://www.interaction-design.org/literature/topics/web-design" class="see-more-button">See More</a></button>
+            </div>
+            <div class="skill-card">
+                <h3>DATA ANALYST</h3>
+                <p>To address corporate challenges, data visualization tools, programming languages, and data analysis approaches are used.
+                </p>
+                <button><a href="https://builtin.com/learn/careers/data-analyst" class="see-more-button">See More</a></button>
+            </div>
+
+            <button class="btn-education">what language did i use?<img src="coding_icon.jpg" alt="Education"></button>
+            <div class="education-content">
+                <div class="skill-card">
+                    <h3>PYTHON</h3>
+                    <p>is any text written in the Python programming language that contains instructions that the computer hardware can understand and execute by using the interpreter for Python.
+                    </p>
+                    <button><a href="https://www.geeksforgeeks.org/what-is-python/" class="see-more-button">See More</a></button>
+                </div>
+
+                <div class="skill-card">
+                    <h3>HTML</h3>
+                    <p>is a markup language used on the internet that specifies how pages should be structured. 
+                    </p>
+                    <button><a href="https://www.freecodecamp.org/news/what-is-html-definition-and-meaning/" class="see-more-button">See More</a></button>
+                </div>
+
+                <div class="skill-card">
+                    <h3>CSS</h3>
+                    <p>for Style Sheets with Cascades. The CSS specifies how HTML elements should appear on a screen, in print, or in other media. CSS greatly reduces labor.</p>
+                    <button><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS" class="see-more-button">See More</a></button>
+                </div>
+
+                <div class="skill-card">
+                    <h3>JAVASCRIPT</h3>
+                    <p>is a popular scripting and programming language for web development that runs synchronously in one thread.
+                    </p>
+                    <button><a href="https://www.freecodecamp.org/news/what-is-javascript-definition-of-js/" class="see-more-button">See More</a></button>
+                </div>
+
+                <div class="skill-card">
+                    <h3>C++</h3>
+                    <p>is a cross-platform language that can be used to create high-performance applications.</p>
+                    <button><a href="https://cplusplus.com/doc/tutorial/operators/" class="see-more-button">See More</a></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="works">
+        <h2>Works</h2>
+        <div class="works-grid">
+            <div class="work-card">  
+                    <h1>RESPONSIVE WEB DESIGN</h1>
+                    <a href="https://bandolfwaps.github.io/ONLINE_RESUME/" class="see-more-button">See More</a>
+                <div class="work-card">
+                    <h1>FUNCTIONAL CALCULATOR APP w/ JAVASCRIPT</h1>
+                    <a href="https://bandolfwaps.github.io/ipt101-calculator-app/" class="see-more-button">See More</a>
+                </div>
+                <div class="work-card">
+                    <h1>ROCK-PAPER-SCISSOR GAME USING DOM</h1>
+                    <a href="https://bandolfwaps.github.io/ROCK-PAPER-SCISSOR-GAME-/" class="see-more-button">See More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+            
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address">
+            
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea>
+            
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+            
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location">
+            
+            <button type="submit">Submit</button>
+        </form>
+        <div class="social-media">
+            <a href="https://www.facebook.com/ramon.bernal.52012/" target="_blank">
+                <img src="facebook_icon.png" alt="Facebook Logo" class="social-logo">
+            </a>
+            <a href="https://x.com/RAMONBE24834982" target="_blank">
+                <img src="twitter_icon.jpg" alt="Twitter Logo" class="social-logo">
+            </a>
+            <a href="https://www.instagram.com/ramon.bernal.52012/?hl=en" target="_blank">
+                <img src="instagram_icon.jpg" alt="Instagram Logo" class="social-logo">
+            </a>
+            <a href="https://myaccount.google.com/?hl=en_GB&utm_source=OGB&utm_medium=act" target="_blank">
+                <img src="gmail_icon.png" alt="Gmail Logo" class="social-logo">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ramon Bernal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.add('clicked');
+                setTimeout(() => {
+                    button.classList.remove('clicked');
+                }, 300);
+            });
+        });
+
+        document.querySelectorAll('.skill-card button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.add('clicked');
+                setTimeout(() => {
+                    button.classList.remove('clicked');
+                }, 300);
+            });
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .clicked {
+                transform: scale(0.95);
+                transition: transform 0.3s;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
